@@ -6,7 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.dayloop-list{
+  background-color: aqua;
+}
 .row{
   display: flex;
   flex-direction: column;

@@ -1,5 +1,3 @@
-
-
 function Data() {
   const parsedDate = new Date().toLocaleDateString('ko-kr');
   
