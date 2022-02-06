@@ -1,34 +1,32 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Dayloop from "./Dayloop";
+import TodoItem from "./TodoItem";
 
 function AddList() {
-
-  const [value, setValue] = useState({id: 1, text: '', checked: false}) ;
-  const [isAddBtn, setAddBtn] = useState(false);
-
+//value는 인풋에 작성된 내용
+  const [value, setValue] = useState('') ;
+  const [ date, setDate ] = useState('');
+  const inputRef = useRef(null);
 
   function handleChange(e){
-    setValue(e.target.value);
-    console.log(setValue)
+    setValue(e.target.value)
   }
+  function handleBtnClick(){
+    setDate(value);
+    inputRef.current.focus();
 
+  }
+console.log(value)
   return (
     <div>
-      <form>
-        <input type='text' value={value.text} name="text" onChange={handleChange} />
-        <button
-        type="submit"
-        onClick ={ () =>{
-          setAddBtn(!isAddBtn);
-        }}
-        >
-          ADD List
-        </button>
-        {isAddBtn && <Dayloop text={"props전달"}/>}
-      </form>
+        <input type='text' name="text" ref={inputRef} onChange={handleChange} />
+        <button onClick ={handleBtnClick}> ADD List</button>
+
+      <Dayloop text={date}/> 
+      <TodoItem/>
     </div>
   )
 }
-
+//
 
 export default AddList;

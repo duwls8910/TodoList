@@ -5,7 +5,7 @@ function Dayloop(todos) {
   return(
     <div>
       <div className="dayloop-list">
-        <input type= 'checkbox' />{todos.text}
+        <input type= 'checkbox' /> {todos.text}
       </div>
     </div>  
   )
