@@ -5,7 +5,7 @@ import TodoItem from "./TodoItem";
 function AddList() {
 //value는 인풋에 작성된 내용
   const [value, setValue] = useState('') ;
-  const [ date, setDate ] = useState('');
+  const [data, setDate ] = useState('');
   const inputRef = useRef(null);
 
   function handleChange(e){
@@ -22,7 +22,7 @@ console.log(value)
         <input type='text' name="text" ref={inputRef} onChange={handleChange} />
         <button onClick ={handleBtnClick}> ADD List</button>
 
-      <Dayloop text={date}/> 
+      <Dayloop todos={data}/> 
       <TodoItem/>
     </div>
   )

@@ -8,9 +8,11 @@ function TodoItem(props){
   ]
 
   return(
+  <section>
     <div>
       
     </div>
+  </section>
   )
 }
 export default TodoItem;

@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>jane's Todo List  </h1>
+        <h1>Todo List</h1>
       
         <div className='row'>
           <div className='date'>
@@ -29,7 +29,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          추천 BGM
+          BGM
         </a>
       </header>  
     </div>
