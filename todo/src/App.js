@@ -4,6 +4,7 @@ import Data from './List/Data';
 import Weather from './List/Weather';
 import AddList from './List/AddList';
 import Dayloop from './List/Dayloop';
+import Music from './List/Music';
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
         >
           BGM
         </a>
+        <Music />
       </header>  
     </div>
   );
