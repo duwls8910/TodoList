@@ -1,6 +1,4 @@
 import { useRef, useState } from "react";
-import Dayloop from "./Dayloop";
-import TodoItem from "./TodoItem";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -21,31 +19,29 @@ const Input = styled.input`
   
 `
 
-function AddList() {
+function AddList({addlistData}) {
 //value는 인풋에 작성된 내용
   const [value, setValue] = useState('') ;
-  const [data, setDate ] = useState('');
-  const inputRef = useRef(null);
+
 
   function handleChange(e){
     setValue(e.target.value)
+    console.log(e.target.value)
   }
-  function handleBtnClick(){
-    setDate(value);
-    inputRef.current.focus();
 
+  function handleBtnClick(){
+    addlistData(value);
+    
   }
-console.log(value)
   return (
     <div>
-        <Input type='text' name="text" ref={inputRef} onChange={handleChange} placeholder ='적어요 일정'/>
+      
+        <Input type='text' name="text" onChange={handleChange} placeholder ='적어요 일정'/>
         <Button onClick ={handleBtnClick}> 일정추가 </Button>
-
-      <Dayloop todos={data}/> 
-      <TodoItem/>
+      
     </div>
   )
 }
-//
+
 
 export default AddList;
