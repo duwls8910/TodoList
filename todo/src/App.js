@@ -11,12 +11,14 @@ import { useState } from 'react';
 
 function App() {
   const [isData , setData] = useState('');
+  
 
   function addlistData(data){
     setData(data);
     console.log('상끌성공');
   }
   
+
   return (
     <div className="App">
       <header className="App-header">
