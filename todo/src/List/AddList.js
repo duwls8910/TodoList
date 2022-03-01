@@ -18,11 +18,17 @@ const Input = styled.input`
   padding: 0.25em 1em;
   
 `
+//여기서 dayLoop과 1회성 이벤트를 나눌 option을 만들 예정
+const Option = styled.option`
+  border: 2px solid limegreen;
+  border-radius: 2px;
 
-function AddList({addlistData}) {
+`
+
+function AddList({addlistData, addOneTimeEvent}) {
 //value는 인풋에 작성된 내용
   const [value, setValue] = useState('') ;
-
+  const [isLoop, setIsLoop] = useState(true); // 
 
   function handleChange(e){
     
@@ -32,12 +38,19 @@ function AddList({addlistData}) {
     
   }
 
+
   function handleBtnClick(){
-      addlistData(value);
+    //addlistData(value);
+    //여기서 조건문을 걸어주자. if option === loopEvent => addListData(value)
+    isLoop ? addlistData(value) : addOneTimeEvent(value);
+    //isLoop이 참이면 Loop Event에 입력한 값을 넣어주고, 거짓이면 dailyEvent에 값을 넣어준다. 
   }
   return (
     <div>
-      
+        <select>
+          <option value="oneTimeEvent">One-time event</option>
+          <option value="loopEvent">Daily Loop event</option>
+        </select>
         <Input type='text' name="text" onChange={handleChange} placeholder ='적어요 일정'/>
         <Button onClick ={handleBtnClick}> 일정추가 </Button>
       
