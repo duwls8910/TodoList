@@ -9,7 +9,7 @@ function TodoItem({todo}){
     <div>
       <input type='checkbox' value={checked} />
       {text}  
-      <FontAwesomeIcon icon= { faTrash }/>
+      <FontAwesomeIcon icon= { faTrash } />
     </div>
   </section>
   )
@@ -26,4 +26,6 @@ export default TodoItem;
 
 // 해결할거+++
 //글쓸때마다 추가할 방법 id와 텍스트 부분에 data받는법 
-//아 씨마켓 훅스에서 장바구니 추가할때 어떻게했는지 확인해볼것
+//아 씨마켓 훅스에서 장바구니 추가할때 어떻게했는지 확인해볼것  ---> 해결함
+
+// 휴지통누르면 삭제 구현 item 에서  todolist로 상끌
