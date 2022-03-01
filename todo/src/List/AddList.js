@@ -31,11 +31,7 @@ function AddList({addlistData, addOneTimeEvent}) {
   const [isLoop, setIsLoop] = useState(true); // 
 
   function handleChange(e){
-    
-      setValue(e.target.value)
-      console.log(e.target.value)
-    
-    
+    setValue(e.target.value)
   }
 
 
@@ -44,6 +40,7 @@ function AddList({addlistData, addOneTimeEvent}) {
     //여기서 조건문을 걸어주자. if option === loopEvent => addListData(value)
     isLoop ? addlistData(value) : addOneTimeEvent(value);
     //isLoop이 참이면 Loop Event에 입력한 값을 넣어주고, 거짓이면 dailyEvent에 값을 넣어준다. 
+    setValue("");
   }
   return (
     <div>
@@ -51,7 +48,7 @@ function AddList({addlistData, addOneTimeEvent}) {
           <option value="oneTimeEvent">One-time event</option>
           <option value="loopEvent">Daily Loop event</option>
         </select>
-        <Input type='text' name="text" onChange={handleChange} placeholder ='적어요 일정'/>
+        <Input type='text' name="text" onChange={handleChange} value ={value} placeholder ='적어요 일정'/>
         <Button onClick ={handleBtnClick}> 일정추가 </Button>
       
     </div>

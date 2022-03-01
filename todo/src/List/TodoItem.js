@@ -1,9 +1,16 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 function TodoItem({todo}){
   const { id, text, checked } = todo;
 
   return(
   <section>
-   <div><input type='checkbox' value={checked} />{text}</div>
+    <div>
+      <input type='checkbox' value={checked} />
+      {text}  
+      <FontAwesomeIcon icon= { faTrash }/>
+    </div>
   </section>
   )
 }

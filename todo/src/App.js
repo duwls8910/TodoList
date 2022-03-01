@@ -7,6 +7,9 @@ import Music from './List/Music';
 import TodoList from './List/TodoList'
 
 import { useState,useRef } from 'react';
+import styled from "styled-components";
+
+
 
 function App() {
   const [isData , setData] = useState([
@@ -48,8 +51,6 @@ function App() {
             <Weather />
           </div>  
         </div>
-        
-        <img src={logo} className="App-logo" alt="logo" />
         <AddList addlistData={addlistData} />
         <TodoList data={isData}/>
         {/* <Music /> */}
