@@ -1,15 +1,19 @@
 //여진
 
-function TodoList() {
+import TodoItem from "./TodoItem";
+
+function TodoList({data}) {
   
 
 
   return(
     <div>
-      <div>
-        <input type= 'checkbox' />
-        
-      </div>
+      {data.map((todo) => (
+        <TodoItem
+          todo={todo}
+          key={todo.id}
+        />
+      ))}
     </div>
   )
 }

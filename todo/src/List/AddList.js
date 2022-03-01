@@ -25,13 +25,15 @@ function AddList({addlistData}) {
 
 
   function handleChange(e){
-    setValue(e.target.value)
-    console.log(e.target.value)
+    
+      setValue(e.target.value)
+      console.log(e.target.value)
+    
+    
   }
 
   function handleBtnClick(){
-    addlistData(value);
-    
+      addlistData(value);
   }
   return (
     <div>

@@ -1,28 +1,9 @@
-function TodoItem({data}){
-
-  const list = [
-    {
-      id: 1,
-      text: '간지나게 숨쉬기'
-    },
-    {
-      id: 2,
-      text: '멋있게 밥먹기'
-    },
-    {
-      id : 3,
-      text: data
-    }
-  ]
+function TodoItem({todo}){
+  const { id, text, checked } = todo;
 
   return(
   <section>
-    {
-      list.map((ele)=>{
-        return (<div key={ele.id}>{ele.text}</div>)
-      })
-      
-    }
+   <div><input type='checkbox' value={checked} />{text}</div>
   </section>
   )
 }

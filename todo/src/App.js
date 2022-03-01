@@ -3,18 +3,35 @@ import './App.css';
 import Data from './List/Data';
 import Weather from './List/Weather';
 import AddList from './List/AddList';
-import Dayloop from './List/Dayloop';
 import Music from './List/Music';
-import TodoItem from './List/TodoItem'
+import TodoList from './List/TodoList'
 
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 
 function App() {
-  const [isData , setData] = useState('');
+  const [isData , setData] = useState([
+    // {
+    //   id: -1,
+    //   text: '열심히 공부하기',
+    //   checked: true
+    // },
+    // {
+    //   id: -2,
+    //   text: '멋있게 밥먹기',
+    //   checked: true
+    // }
+  ]);
+  const nextId = useRef(0);
 
   function addlistData(data){
-    setData(data);
-    console.log('상끌성공');
+    const todo = {
+      id: nextId.current,
+      text :data,
+      checked: false,
+    }; 
+    setData(isData.concat(todo));
+    nextId.current += 1;
+    console.log(isData);
   }
   
   return (
@@ -32,9 +49,9 @@ function App() {
         </div>
         
         <img src={logo} className="App-logo" alt="logo" />
-        <TodoItem data={isData}/>
         <AddList addlistData={addlistData} />
-        <Music />
+        <TodoList data={isData}/>
+        {/* <Music /> */}
       </header>  
     </div>
   );
