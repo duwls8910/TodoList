@@ -1,15 +1,52 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import React, {useState, useEffect} from 'react';
+
 
 function TodoItem({todo}){
   const { id, text, checked } = todo;
+    // console.log(id) // 인덱스값
+    // console.log(text) // 적힌값
+    // console.log(checked) // 체크값/
+
+  // const [checkedInputs, setCheckedInputs] = useState([]);
+
+  const checkHandler = (checked) => {
+    if (checked){
+      // id = 체크한 인덱스
+      let query = document.querySelectorAll('.num')
+      // query = className이 num 인 쿼리들의 배열
+      
+      // query[id] = 해당 스팬태그 1개
+      if(query[id].style.textDecorationLine === 'line-through'){
+        query[id].style.textDecorationLine = 'none'
+      } else {
+        query[id].style.textDecorationLine = 'line-through'
+      }
+    } 
+  }
+
+  const deleteHandler = (e) => {
+    let query = document.querySelectorAll('.num')
+    console.log(query)
+    let parent = document.getElementsByClassName('num')
+    console.log(parent)
+    let deleteQuery = query[id]
+    deleteQuery.remove()
+    deleteQuery = query[id-1]
+    console.log(deleteQuery)
+  }
 
   return(
   <section>
     <div>
-      <input type='checkbox' value={checked} />
-      {text}  
-      <FontAwesomeIcon icon= { faTrash } />
+      <input type='checkbox' value={checked} 
+      onChange={checkHandler} />
+      <span className='num'>
+      {/* <span className={id}> */}
+        {text}
+      </span>
+      <FontAwesomeIcon className='btnDelete' icon= { faTrash } onClick={deleteHandler} />
     </div>
   </section>
   )

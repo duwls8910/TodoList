@@ -42,13 +42,21 @@ function AddList({addlistData, addOneTimeEvent}) {
     //isLoop이 참이면 Loop Event에 입력한 값을 넣어주고, 거짓이면 dailyEvent에 값을 넣어준다. 
     setValue("");
   }
+  
+  function handleEnterPress(e){
+    console.log(e.key);
+    if(e.key === 'Enter'){handleBtnClick()} 
+    // setValue("");
+  }
+
   return (
     <div>
         <select>
           <option value="oneTimeEvent">One-time event</option>
           <option value="loopEvent">Daily Loop event</option>
         </select>
-        <Input type='text' name="text" onChange={handleChange} value ={value} placeholder ='적어요 일정'/>
+        <Input type='text' name="text" onChange={handleChange} value ={value} placeholder ='적어요 일정'
+        onKeyPress={handleEnterPress} />
         <Button onClick ={handleBtnClick}> 일정추가 </Button>
       
     </div>

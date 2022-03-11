@@ -27,6 +27,7 @@ function App() {
   const nextId = useRef(0);
 
   function addlistData(data){
+    
     const todo = {
       id: nextId.current,
       text :data,
@@ -35,6 +36,7 @@ function App() {
     setData(isData.concat(todo));
     nextId.current += 1;
     console.log(isData);
+
   }
   
 
